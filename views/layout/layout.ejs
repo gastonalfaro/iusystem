@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>mh</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/css/codemirror.css"> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+  <!-- <script src="/js/codemirror.js"></script> -->
+  <script src="/js/javascript.js"></script>
+  <script src="https://use.fontawesome.com/f21898cdf3.js"></script>
+  <script src="https://unpkg.com/vue@2.4.2"></script>
+  <style>
+    * {
+      -webkit-border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+      border-radius: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img src="https://dl.dropboxusercontent.com/s/n5dhy9h1osuf5v9/mh-b.png" alt="Ministerio de Hacienda" style="width:120px">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/aplicaciones" class="nav-link">
+            <i class="fa fa-table"></i> Aplicaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/usuarios" class="nav-link">
+            <i class="fa fa-users"></i> Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a href="/me" class="nav-link">
+          <i class="fa fa-cog"></i> Configuración
+        </a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">
+          <i class="fa fa-sign-out"></i> LogOut          
+        </a>
+      </ul>
+    </div>
+  </nav>
+
+  <%- body %>
+
+    <% if (locals.flash) { %>
+      <div id="mensaje" class="alert alert-success" role="alert">
+        <%= locals.flash %>
+      </div>
+      <% } %>
+</body>
+
+</html>

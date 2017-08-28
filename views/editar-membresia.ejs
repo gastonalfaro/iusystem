@@ -1,0 +1,82 @@
+<% layout('\\layout\\layout') -%>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/usuarios">Usuarios</a></li>
+    <li class="breadcrumb-item"><a href="/usuarios/<%= membresia.user_id %>">Edición de usuario</a></li>
+    <li class="breadcrumb-item active">Edición de membresía</li>
+  </ol>
+  <div class="container" style="margin-top: 30px">
+    <div id="app">
+      <h3>Edición de membresia</h3>
+      <hr>
+      <form id="form">
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Usuario</label>
+          <div class="col-form-label">
+            <%= membresia.user_id %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 col-form-label">Aplicación</label>
+          <div class="col-form-label">
+            <%= membresia.nombre %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="fecha" class="col-2 col-form-label">Fecha</label>
+          <div class="col-form-label">
+            <%= membresia.afiliacion.toLocaleDateString() %>
+          </div>
+        </div>
+        <div id="esquema_app" style="display: none;">
+          <%= membresia.esquema_app %>
+        </div>
+        <div id="esquema_mem" style="display: none;">
+          <%= membresia.esquema_mem %>
+        </div>
+        <div id="editor" class="form-group" style="height: 500px;border:1px solid grey"></div>
+        <button type="submit" class="btn btn-default">Guardar</button>
+      </form>
+      <hr>
+    </div>
+    <!-- <script>
+      $('#asociar').click((e) => {
+        e.preventDefault()
+
+        const data = {
+          email: $('#email').val(),
+          app_key: $('#aplicacion')[0].value
+        }
+
+        $.post('/asociar', data)
+          .done(() => location.reload())
+          .fail((e) => console.log('Ya existe la membresía'))
+      })
+    </script> -->
+    <script>
+      var require = { paths: { 'vs': '/monaco-editor/min/vs' } };
+    </script>
+    <script src="../monaco-editor/min/vs/loader.js"></script>
+    <script src="../monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="../monaco-editor/min/vs/editor/editor.main.js"></script>
+
+    <script>
+      require.config({ paths: { 'vs': '../monaco-editor/min/vs' } });
+      require(['vs/editor/editor.main'], function () {
+        var originalModel = monaco.editor
+          .createModel(JSON.stringify(JSON.parse(document.getElementById('esquema_app').textContent.trim()), null, 2), "application/json");
+        var modifiedModel = monaco.editor
+          .createModel(JSON.stringify(JSON.parse(document.getElementById('esquema_mem').textContent.trim()), null, 2), "application/json");
+
+        var diffEditor = monaco.editor.createDiffEditor(document.getElementById("editor"), {
+          enableSplitViewResizing: true,
+          mode: 'json',
+          fontSize: 14
+        });
+        diffEditor.setModel({
+          original: originalModel,
+          modified: modifiedModel
+        });
+      });
+    </script>
+    <script src="/js/membresias.js"></script>
+  </div>

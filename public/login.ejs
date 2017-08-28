@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>mh</title>
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/kuag03nsb5x43po/pure-gg.css">
+</head>
+
+<body>
+  <div class="banner">
+    <span href="#" class="pure-menu-heading">
+      <img src="https://dl.dropboxusercontent.com/s/n5dhy9h1osuf5v9/mh-b.png" alt="Ministerio de Hacienda" style="width: 120px;">
+      </span>
+  </div>
+  <form class="pure-form pure-form-stacked login-form" action="/login" method="post">
+    <label for="username">Nombre de usuario</label>
+    <input id="username" type="text" name="username" class="pure-input-1" value="root">
+    <label for="password">Contraseña</label>
+    <input id="password" type="password" name="password" class="pure-input-1" value="Hacienda01">
+    <button type="submit" class="pure-button pure-button-primary pure-input-1">Login</button>
+  </form>
+  {% if (flash %}
+  <div id="mensaje" class="alerta">{{flash}}</div>
+  {% endif %}
+
+</body>
+
+</html>

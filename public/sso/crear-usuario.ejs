@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>mh</title>
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/kuag03nsb5x43po/pure-gg.css">
+</head>
+
+<body>
+  <div class="banner">
+    <span href="#" class="pure-menu-heading">
+      <img src="https://dl.dropboxusercontent.com/s/n5dhy9h1osuf5v9/mh-b.png" alt="Ministerio de Hacienda" style="width: 120px;">
+      </span>
+  </div> 
+<form class="pure-form pure-form-stacked" action="/crear-usuario" method="post">
+  <label for="email">Email</label>
+  <!--<input id="username" type="text" name="username" class="pure-input-1" value="" required>-->
+  <input id="email" type="email" name="email" class="pure-input-1" value="">
+  <button type="submit" class="pure-button pure-button-primary pure-input-1">Guardar</button>
+</form>
+<% if (locals.flash) { %>
+    <div id="mensaje" class="alerta">
+      <%= locals.flash %>
+    </div>
+  <% } %>
+</body>
+
+</html>
